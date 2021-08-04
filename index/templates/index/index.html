@@ -5,20 +5,19 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <title>Please Login</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'login/styles/login.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'index/styles/index.css' %}">
 </head>
 <body>
 
 <div class="login_wrapper">
-  
-  <div class="login_container">
+    <div class="login_container">
     <div class="login_header">
-      <p>Owned By: Subash</p>
+      <p>Owner: Subash</p>
     </div>
     <form action="" method="post">
       {% csrf_token %}
      <div class="login_part"> 
-      <label>Email </label>
+      <label>Username </label>
       <input type="text" name="usernamea" >
     </div>
     <div class="login_part">

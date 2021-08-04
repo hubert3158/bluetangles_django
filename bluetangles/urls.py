@@ -15,9 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.shortcuts import render, redirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('login.urls')),
-    path('loggedspace/',include('loggedspace.urls'))
+    # path('', lambda request: redirect('login/' , permanent=True)),
+    path('loggedspace/',include('loggedspace.urls')),
+    path('', include('index.urls') ),
+    # path('login/', include('login.urls') ),
+    # path('registered/', include('login.urls') ),
+    # path('signup/', include('login.urls') ),
+    # path('login/', include('login.urls') ),
+    # path('loggedspace/',include('loggedspace.urls')),
+    path('<str:inpvalue>/',include('index.urls')),
 ]

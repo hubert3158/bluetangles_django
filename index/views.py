@@ -2,18 +2,27 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.models import User,auth
+from django.contrib.auth import authenticate, login, logout
 # Create your views here. 
 
 def index(request):
+
+	if request.user.is_authenticated:
+			return redirect("/loggedspace/")
+
 	if request.method == 'POST':
 		# return redirect("/loggedspace/")
 		username = request.POST['usernamea']
 		password = request.POST['passworda']
 
-		# user = auth.authenticate(username=username,password=password)
 		user = authenticate(request,username=username,password=password)
+		# user = authenticate(request,username=username,password=password)
 
-		if user is not None:
+
+		if request.user.is_authenticated:
+			return redirect("/test/")	
+
+		elif user is not None:
 			auth.login(request, user)
 			return redirect("/loggedspace/")
 		else:
@@ -21,12 +30,25 @@ def index(request):
 			# return redirect("loggedspace/")
 			return redirect(request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found'))
 
-	# else:
-	# 	return render(request, 'login/index.html')
+	else:
+		return render(request, 'index/index.html')
 
-# def signup(request):
 
-	# if request.method == 'POST':
+def redirector(request, inpvalue):
+	if inpvalue == 'login' or inpvalue == 'index' :
+		return redirect('/')
+	elif inpvalue == 'signup':
+		return render(request, 'index/registration.html')
+	elif inpvalue == 'logout':
+		 logout(request)
+		 return redirect('/')
+	else:
+		return render(request, 'index/'+inpvalue+'.html')
+
+
+def signup(request):
+
+	if request.method == 'POST':
 		
 		fname = request.POST['fname']
 		lname = request.POST['lname']
@@ -57,7 +79,7 @@ def index(request):
 
 	else:
 
-		return render(request, 'login/index.html')
+		return render(request, 'index/index.html')
 
 
 # def login(request):
@@ -75,9 +97,9 @@ def index(request):
 # 			return redirect('loggedspace/')
 
 # 	else:
-# 		return render(request, 'login/index.html')
+# 		return render(request, 'index/index.html')
 
 
-def registered(request):
+# def registered(request):
 
-	return render(request, 'login/registered.html')
+# 	return render(request, 'index/registered.html')

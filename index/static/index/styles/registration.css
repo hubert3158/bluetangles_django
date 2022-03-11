@@ -1,0 +1,154 @@
+*{
+  margin:0px;
+  padding:0px;
+  box-sizing: content-box;
+}
+
+body {
+  background-color: hsla(189, 60%, 60%, 1);
+  user-select: none;
+}
+.show_wrapper {
+  /*background-color: hsla(189, 50%, 60%, 1);*/
+  height: 100vh;
+  width: 100vw;
+
+
+}
+.show {
+  /*background-color: hsla(189, 60%, 60%, 1);*/
+  max-width: 600px;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  /*margin-top: 10vh;*/
+  height: 100vh;
+  display: flex;    
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /*height: 80%;*/
+}
+
+.show form {
+  background-color: hsla(189, 65%, 70%, 1);
+  /*margin-top: 4vh;*/
+  padding: 0% 10%;
+  border-radius: 15px;
+  margin-top: 2%;
+}
+
+.form_header{
+  text-decoration: underline;
+  padding: 0px;
+}
+.registration_part{
+  /*margin-top: 14%;*/
+  /*height: 10vh;*/
+  display: flex;
+  /*font-size: 1.5em;*/
+  /*flex-direction: column;*/
+  justify-content: space-between;
+  align-items: center;
+  margin: 13% 0;
+  
+  /*align-items: flex-start;*/
+  /*height: 50px;*/
+}
+
+.registration_part > label {
+  font-size: 1.3em;
+  /*flex-basis: 35%;*/
+  /*flex-basis: 100%;*/
+  flex-basis: 50%;
+}
+.registration_part > input[type="password"], input[type="text"] , input[type="email"] {
+  outline-style: none;
+
+  border : none;
+  /*height: 2em;*/
+  /*flex-basis: 65%;*/
+  /*flex-grow: 0px;*/
+  padding: 10px;
+  border-radius: 8px;
+  background-color: hsla(189, 65%, 95%, 1);
+  font-size: 1em;
+  flex-basis: 50%;
+  width: 15em;
+}
+.registration_part > input[type="password"]:hover, input[type="text"]:hover , input[type="email"]:hover {
+   /*outline: 3px solid hsla(189, 75%, 55%, 1);
+   outline-offset: -2px;
+   outline-*/
+
+    /*font-size: 1em;*/
+   box-shadow: 0 0 4pt 4pt hsla(195, 75%, 55%, 1);
+    outline: none;
+    transition: .1s;
+     
+} 
+
+.registration_part > input[type="password"]:focus, input[type="text"]:focus , input[type="email"]:focus {
+   background-color: hsla(189, 75%, 55%, 1) ;
+   color: white;
+  /*font-weight: 900;*/
+    /*letter-spacing: 1px;*/
+
+} 
+
+.registration_part > input[type='submit']{
+ /* height: 30px;
+  width: 50px;*/
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+}
+.error {
+  color: red;
+}
+@media screen and (max-width: 700px) {
+
+  *{
+    padding: 0px;
+    margin: 0px;
+  }
+
+/*show_wrapper{
+  margin: auto 0px;
+}*/
+
+body {
+  background-color: hsla(189, 70%, 60%, 1);
+}
+.show {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+.show form {
+  margin: 0px;
+  background-color: hsla(189, 70%, 60%, 1);
+  /*margin: 0px;
+  padding: 0px;
+  width: 100vw;
+  background-color: hsla(100, 100%, 100%, 0);*/
+}
+.registration_part{
+  
+
+  /*justify-content: space-between;*/
+  /*width: 100vw;*/
+  /*font-size: 1.2em;*/
+}
+.registration_part > label {
+  
+}
+.registration_part > input[type="password"], input[type="text"] , input[type="email"] {
+
+/*  border : none;
+  height: 3em;
+  flex-basis: 65%;
+  border-radius: 5px;
+  background-color: hsla(189, 65%, 70%, 1);*/
+  }
+}

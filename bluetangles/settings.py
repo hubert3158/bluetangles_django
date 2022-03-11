@@ -21,13 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-vdftfwxp#5umeszfmj^6y0544eg_!33x3ucn0e&lqyr)^qn-fs'
+SECRET_KEY = '09da90fas09d#$ASFa@#@G@#RDFS#@vdftfwxp#5umeszfmj^6y0544eg_!33x3ucn0e&lqyr)^qn-fs'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-
+#ALLOWED_HOSTS = ['bluetangles.com,www.bluetangles.com']
+ALLOWED_HOSTS = ['bluetangles.com','www.bluetangles.com'];
 
 # Application definition
 
@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'login',
-    'loggedspace',
     'index',
+    'loggedspace'
+    'emailHandle',
 ]
 
 MIDDLEWARE = [
@@ -78,22 +78,22 @@ WSGI_APPLICATION = 'bluetangles.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-   'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-   }
-}
+    'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+ }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'helloworld',
-#         'USER': 'subash',
-#         'PASSWORD': 'subash123',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#     }
-# }
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'main',
+#        'USER': 'subash',
+#        'PASSWORD': 'subash123',
+#        'HOST': 'localhost',
+#        'PORT': '5432',
+#    }
+#}
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -144,3 +144,10 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
     }
 }
+
+SECURE_HSTS_SECONDS = 60
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE =  True 
+SECURE_HSTS_PRELOAD = True

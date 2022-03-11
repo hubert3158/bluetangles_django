@@ -28,4 +28,5 @@ urlpatterns = [
     # path('login/', include('login.urls') ),
     # path('loggedspace/',include('loggedspace.urls')),
     path('<str:inpvalue>/',include('index.urls')),
+    path('email/',include('emailHandle.urls'))
 ]

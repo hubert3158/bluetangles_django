@@ -19,10 +19,9 @@ def index(request):
 		# user = authenticate(request,username=username,password=password)
 
 
-		if request.user.is_authenticated:
-			return redirect("/test/")	
+			
 
-		elif user is not None:
+		if user is not None:
 			auth.login(request, user)
 			return redirect("/loggedspace/")
 		else:
@@ -38,7 +37,7 @@ def redirector(request, inpvalue):
 	if inpvalue == 'login' or inpvalue == 'index' :
 		return redirect('/')
 	elif inpvalue == 'signup':
-		return render(request, 'index/registration.html')
+		return redirect('/registration/')
 	elif inpvalue == 'logout':
 		 logout(request)
 		 return redirect('/')
@@ -46,22 +45,28 @@ def redirector(request, inpvalue):
 		return render(request, 'index/'+inpvalue+'.html')
 
 
-def signup(request):
+def registration(request):
+
+	# return redirect("/test/")
 
 	if request.method == 'POST':
-		
+		# return redirect("/test/")
 		fname = request.POST['fname']
 		lname = request.POST['lname']
 		username = request.POST['username']
 		regemail = request.POST['regemail']
 		regpassword = request.POST['regpassword']
 		
+
+
 		try:
 			user = User.objects.create_user(first_name=fname,last_name=lname,username=username,email=regemail,password=regpassword)
 			user.save();
+			
 		except: 
-			# return redirect(request.META.get('	', 'redirect_if_referer_not_found'))
-			return redirect('')
+			messages.info(request,'Please re-check the information')
+			# return redirect("loggedspace/")
+			return redirect(request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found'))
 		else:
 			return redirect('registered/')
 		# user = auth.authenticate(email=email,password=password)
@@ -79,7 +84,7 @@ def signup(request):
 
 	else:
 
-		return render(request, 'index/index.html')
+		return render(request, 'index/registration.html')
 
 
 # def login(request):

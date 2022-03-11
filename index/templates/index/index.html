@@ -6,6 +6,7 @@
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <title>Please Login</title>
   <link rel="stylesheet" type="text/css" href="{% static 'index/styles/index.css' %}">
+  <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
 </head>
 <body>
 
@@ -29,7 +30,10 @@
     </div>
     </form>
     <div class="signup_link"><a href="signup/"> Oh, I gotta signup</a></div>
-    <div class="login_error">
+    <div class="error">
+      {% for message in messages %}
+        {{ message }}
+      {% endfor %}
     </div>
     <div class="login_footer">
       <p>Remember, it is under construction. </p>

@@ -1,2 +1,0 @@
-# bluetangles
-My personal Website
